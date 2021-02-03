@@ -1,3 +1,12 @@
 #game{
-   background-color: black;
+   /* background-color: rgba(0, 0, 0, 0.815); */
+   padding: 25px;
+}
+/* temp */
+#game-container{
+
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   border: 1px solid rgba(0, 0, 0, 0.541)
 }
