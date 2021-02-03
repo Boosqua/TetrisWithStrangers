@@ -1,12 +1,14 @@
 import Game  from "./game/game"
 document.addEventListener("DOMContentLoaded", () => {
-   console.log('loaded')
    let canvas = document.getElementById("game") as HTMLCanvasElement;
-   let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-   const game: Game = new Game(ctx)
+   canvas.height = window.innerHeight * .80;
+   let adjust = canvas.height / 24 * 10
+   canvas.width = adjust
+   const game: Game = new Game(canvas)
    // TESTING
    // GRID
    const width: number = canvas.width;
+   let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
    const height: number = canvas.height;
    const gridScale: number = canvas.width / 10;
    let i: number = 0;
