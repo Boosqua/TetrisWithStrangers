@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
 
+document.addEventListener("DOMContentLoaded", () => {
    console.log('loaded')
    let canvas = document.getElementById("game") as HTMLCanvasElement;
+   let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+   const game: Game = new Game(ctx)
    // TESTING
    // GRID
-   let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
    const width: number = canvas.width;
    const height: number = canvas.height;
    const gridScale: number = canvas.width / 10;
@@ -35,19 +36,29 @@ document.addEventListener("DOMContentLoaded", () => {
          4: drawFunc
       }
       const moves: moves = {
-         1: () => {
+         1: () => { // spawning position
             ctx.beginPath();
             ctx.strokeStyle = "red";
+            ctx.fillStyle = "red";
             ctx.moveTo(...center);
             ctx.lineTo(center[0], center[1] + gridScale * 2);
             ctx.lineTo(center[0] + gridScale, center[1] + gridScale * 2);
             ctx.lineTo(center[0] + gridScale, center[1] - gridScale * 2);
             ctx.lineTo(center[0], center[1] - gridScale * 2);
             ctx.lineTo(...center)
+            ctx.fill()
             ctx.stroke()
          },
          2: () => {
-            
+               ctx.beginPath();
+               ctx.strokeStyle = "green";
+               ctx.moveTo(...center);
+               ctx.lineTo(center[0] + gridScale * 2, center[1]);
+               ctx.lineTo(center[0] + gridScale * 2, center[1] + gridScale);
+               ctx.lineTo(center[0] - gridScale * 2, center[1] + gridScale);
+               ctx.lineTo(center[0] - gridScale * 2, center[1])
+               ctx.lineTo(...center);
+               ctx.stroke()
          },
          3: () => {
 
@@ -57,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
          }
       }
       moves[1]();
+      moves[2]();
    }
    drawLongPiece(ctx)
 })
