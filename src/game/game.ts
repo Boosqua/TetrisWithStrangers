@@ -1,7 +1,6 @@
-class Game {
+export default class Game {
    ctx: CanvasRenderingContext2D
-   constructor(ctx){
+   constructor(ctx: CanvasRenderingContext2D){
       this.ctx = ctx
-      console.log('hello')
    }
 }

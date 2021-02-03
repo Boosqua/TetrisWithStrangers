@@ -1,4 +1,4 @@
-
+import Game  from "./game/game"
 document.addEventListener("DOMContentLoaded", () => {
    console.log('loaded')
    let canvas = document.getElementById("game") as HTMLCanvasElement;
@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
          }
       }
-      moves[1]();
-      moves[2]();
+      // moves[1]();
+      // moves[2]();
    }
    drawLongPiece(ctx)
 })

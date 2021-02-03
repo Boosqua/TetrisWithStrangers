@@ -1,16 +1,11 @@
 {
    "compilerOptions": {
-      "outDir": "./built",
-      "allowJs": true,
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "commonjs",
       "target": "es5",
-      "lib": [
-         "es5",
-         "dom"
-      ],
-      "module": "CommonJS"
-   },
-   "include": [
-      "./src/**/*"
-   ],
-
+      "jsx": "react",
+      "allowJs": true
+   }
 }
