@@ -1,10 +1,22 @@
 import Piece from './piece'
 export default class O extends Piece{
-   rotation: number
    color: string
    constructor(scale: number){
-      super([scale * 5, scale], scale)
-      this.rotation = 0;
+      let mapEdge = {
+         right:{
+            0: 9,
+            1: 9,
+            2: 9,
+            3: 9
+         },
+         left:{
+            0: 1,
+            1: 1,
+            2: 1,
+            3: 1
+         }
+      }
+      super([scale * 5, scale], scale, mapEdge)
       this.color = "#72CB3B";
    }
    coordinates(): Array<[number, number]>{

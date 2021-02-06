@@ -1,4 +1,4 @@
-import O from "./pieces/j"
+import O from "./pieces/z"
 import { blocks } from "./utils/canvas_util";
 import test from "./utils/test"
 const FONTSTYLE: string = "Oswald";
@@ -18,14 +18,16 @@ export default class Game {
       this.scale = canvas.width / 10
       this.piece = new O(this.scale)
       this.blocks = test(canvas, this.scale)
+      this.piece.rotation++
+      this.piece.rotation++
+      this.piece.rotation++
+      setTimeout(() => {this.piece.move("right")}, 500 )
+      // setTimeout(() => {this.piece.stop()}, 2500)
       this.animate = this.animate.bind(this)
-      setTimeout(() => {this.piece.move("d")}, 500 )
-      setTimeout(() => {this.piece.stop()}, 2500)
       this.animate();
    }
 
    animate(): void{
-
       this.ctx.clearRect(0, 0, this.width, this.height);
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(0, 0, this.width, this.scale * 4)

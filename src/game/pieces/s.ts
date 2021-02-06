@@ -3,7 +3,21 @@ export default class S extends Piece{
    rotation: number
    color: string
    constructor(scale: number){
-      super([scale * 4, scale], scale)
+      let mapEdge = {
+         right:{
+            0: 8,
+            1: 8,
+            2: 8,
+            3: 9
+         },
+         left:{
+            0: 1,
+            1: 0,
+            2: 1,
+            3: 1
+         }
+      }
+      super([scale * 4, scale], scale, mapEdge)
       this.rotation = 0;
       this.color = "#72CB3B";
    }
