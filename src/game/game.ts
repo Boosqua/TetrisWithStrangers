@@ -19,9 +19,8 @@ export default class Game {
       this.piece = new O(this.scale)
       this.blocks = test(canvas, this.scale)
       this.animate = this.animate.bind(this)
-      setInterval(() => {
-         this.piece.rotation = (this.piece.rotation + 1) % 4
-      }, 500)
+      setTimeout(() => {this.piece.move("d")}, 500 )
+      setTimeout(() => {this.piece.stop()}, 2500)
       this.animate();
    }
 
